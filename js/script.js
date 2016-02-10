@@ -85,7 +85,7 @@ function DrawingUtil(aCanvas) {
 					
 					context.strokeStyle = points[i-1].color;
 					context.lineJoin = context.lineCap = 'round';
-					context.shadowBlur = getRandomInt(4,7);
+					context.shadowBlur = getRandomInt(points[i].width-3, points[i].width);
 					context.shadowColor =points[i-1].shcolor;
 					context.stroke();
 				}
@@ -204,6 +204,7 @@ function DrawingUtil(aCanvas) {
 		canvas.addEventListener("mouseup",stop,false);
 		canvas.addEventListener("mouseout",stop,false);
 		$(".drawingtool").click(function(){
+			var temppentype=pentype;
 			pentype=$(this).attr("id");
 			$(".drawingtool").removeClass("setColor");
 			$(this).addClass("setColor");
@@ -226,7 +227,7 @@ function DrawingUtil(aCanvas) {
 				$(this).prev().prev().css({"background-image": "url('images/brush .png')"});
 			};
 			if(pentype=="paintpallet")
-			{
+			{	pentype=temppentype;
 				if($(this).hasClass("paintpallet1"))
 				{
 					$(this).removeClass("paintpallet1");
