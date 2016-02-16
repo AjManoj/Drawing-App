@@ -33,6 +33,7 @@ $(function() {
 	$(".elemhalf2").css({"height":outlineImage.clientHeight*0.25*0.5});
 	theCanvas.height = outlineImage.clientHeight *0.88-outlineImage.clientHeight*0.25 ;
 	drawingUtil = new DrawingUtil(theCanvas);
+	alert("Left:"+theCanvas.offsetLeft+" Top:"+theCanvas.offsetTop);
 });
 
 function getRandomInt(min, max) {
